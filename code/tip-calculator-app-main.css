@@ -1,0 +1,174 @@
+.color{
+    background-color: RGB(197,228,231);
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 24px;
+}
+
+.spli{
+    margin: 9.5rem 0 5.5rem 0;
+}
+
+.calc-area{
+    width: 900px;
+    border: 2rem solid white;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+.in-put{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-right: 1rem solid white;
+    width: 419px;
+}
+
+.bill{
+    margin: 0.5rem 1rem 2.5rem 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bill-text{
+    margin: 0.1rem 0 0.35rem 0;
+    color: RGB(0,71,75);
+}
+
+.bill-input{
+    color: RGB(197,228,231);
+    font-size: 1.5rem;
+}
+
+.bill-value{
+    display: flex;
+    flex-direction: row;
+    margin: 0.1rem 0rem 0.2rem 0.2rem;
+    background-color: RGB(243,248,251);
+    padding: 0.75rem;
+    border-radius: 0.15rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+
+.tip-percent{
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 0 2rem 0;
+}
+
+.tip-text{
+    margin-bottom: 0.9rem;
+    color: RGB(0,71,75);
+}
+
+.tip-value{
+    display: flex;
+    flex-direction: column;
+}
+
+.button-row{
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 20px;
+    margin-bottom: 1rem;
+}
+.percent-value{
+    width: 125px;
+    height: 48px;
+    background-color: RGB(0,71,74);
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+}
+.percent-value:target{
+    background-color: white;
+}
+.custom{
+    text-align: center;
+    font-size: 1.8rem;
+    font-stretch: extra-expanded;
+    color: RGB(123,148,149);
+    background-color: RGB(243,248,251);
+    font-weight: bold;
+}
+
+.number-of-people{
+    margin: 0.5rem 0 0.75rem 0;
+    color: RGB(123,148,149);
+}
+
+.n-people-input{
+    margin:0.75rem 0 0rem 0;
+    background-color: RGB(243,248,251);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+}
+
+.number-of-people-input{
+    margin: 0.5rem;
+    color: RGB(123,148,149);
+    padding: 00.5rem;
+}
+
+.out-put{
+    background-color: RGB(0,71,75);
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    width: 100%;
+    border-radius: 0.75rem;
+}
+
+.result{
+    justify-content: space-between;
+    display: flex;
+    margin: 1rem 0 3rem 0;
+}
+
+.per-person{
+    color: RGB(16,115,110);
+    font-size: 3rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.up{
+    color: white;
+}
+
+.down{
+    color: RGB(123,148,149);
+}
+
+.reset {
+    width: 100%;
+    margin-top: 3.8rem;
+    padding: 1rem;
+    color: RGB(123,148,149);
+    background-color: RGB(13,104,109);
+    border: 0px;
+    border-radius: 0.5rem;
+    font-size: 22px;
+}
+
+.enter{
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    background-color: inherit;
+    border: 0;
+    color: RGB(123,148,149);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
