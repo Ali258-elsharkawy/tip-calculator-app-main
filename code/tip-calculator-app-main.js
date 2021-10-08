@@ -1,94 +1,138 @@
-var bill_value =document.querySelector(".billJS")
-var NumberOfPeople = document.querySelector(".personJs");
-var custom =document.querySelector(".percent-value");
-var blanked = document.querySelector(".out-put")
-let reset = document.querySelector(".reset")
+// var bill_value =document.querySelector(".billJS")
+// var NumberOfPeople = document.querySelector(".personJs");
+// var custom =document.querySelector(".percent-value");
+// var blanked = document.querySelector(".out-put")
+// let reset = document.querySelector(".reset")
 
-var FivePersent = document.querySelector(".n5")
-var TenPersent = document.querySelector(".n10")
-var FifteenPersent = document.querySelector(".n15")
-let TwentyFivePersent = document.querySelector(".n25")
-let FiftyPersent = document.querySelector(".n50")
+// var FivePersent = document.querySelector(".n5")
+// var TenPersent = document.querySelector(".n10")
+// var FifteenPersent = document.querySelector(".n15")
+// let TwentyFivePersent = document.querySelector(".n25")
+// let FiftyPersent = document.querySelector(".n50")
 
-var acc = document.querySelector(".percent-value");
+// var acc = document.querySelector(".percent-value");
 
-var i;
+// var i;
 
-for (i = 0; i < acc.length; i++) {
-acc[i].onclick = function() {
-    this.classList.toggle("active");
-    this.nextElementSibling.classList.toggle("show");
+// for (i = 0; i < acc.length; i++) {
+// acc[i].onclick = function() {
+//     this.classList.toggle("active");
+//     this.nextElementSibling.classList.toggle("show");
+// }
+// }
+
+// FivePersent.onclick = function(){
+//     const billInput= bill_value.value
+//     const NumberOfPeopleInput = NumberOfPeople.value
+//     FivePersent.setAttribute("style", "background-color: RGB(38,194,173)")
+//     document.querySelector(".per-person").innerHTML ="$"+ ((billInput * 0.05)/NumberOfPeopleInput).toFixed(2)
+//     document.querySelector(".pere-person").innerHTML ="$"+ ((billInput * 1.05)/NumberOfPeopleInput).toFixed(2)
+// }
+
+// TenPersent.onclick = function (){
+//     const billInput= bill_value.value
+//     const NumberOfPeopleInput = NumberOfPeople.value
+//     TenPersent.setAttribute("style", "background-color: RGB(38,194,173)")
+//     document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.1)/NumberOfPeopleInput).toFixed(2)
+//     document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.1)/NumberOfPeopleInput).toFixed(2)
+// }
+
+// FifteenPersent.onclick =function (){
+//     const billInput= bill_value.value
+//     const NumberOfPeopleInput = NumberOfPeople.value
+//     FifteenPersent.setAttribute("style", "background-color: RGB(38,194,173)")
+//     document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.15)/NumberOfPeopleInput).toFixed(2)
+//     document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.15)/NumberOfPeopleInput).toFixed(2)
+// }
+
+// TwentyFivePersent.onclick = function (){
+//     const billInput= bill_value.value
+//     const NumberOfPeopleInput = NumberOfPeople.value
+//     TwentyFivePersent.setAttribute("style", "background-color: RGB(38,194,173)")
+//     document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.25)/NumberOfPeopleInput).toFixed(2)
+//     document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.25)/NumberOfPeopleInput).toFixed(2)
+// }
+
+// FiftyPersent.onclick = function (){
+//     const billInput= bill_value.value
+//     const NumberOfPeopleInput = NumberOfPeople.value
+//     FiftyPersent.setAttribute("style", "background-color: RGB(38,194,173)")
+//     document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.5)/NumberOfPeopleInput).toFixed(2)
+//     document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.5)/NumberOfPeopleInput).toFixed(2)
+// }
+
+// custom.onfocus =function(){
+//     const billInput= bill_value.value
+//     const NumberOfPeopleInput = NumberOfPeople.value
+//     const customInput = custom.value
+
+//     document.querySelector(".per-person").innerHTML = "$"+ ((billInput * (customInput/100))/NumberOfPeopleInput).toFixed(2)
+//     document.querySelector(".pere-person").innerHTML = "$"+ (((billInput)+(billInput*customInput/100))/NumberOfPeopleInput).toFixed(2)
+// }
+
+// var acc = document.querySelector(".percent-value");
+
+// var i;
+
+// for (i = 0; i < acc.length; i++) {
+// acc[i].onclick = function() {
+//     this.classList.toggle("active");
+//     this.nextElementSibling.classList.toggle("show");
+// }
+// }
+
+// reset.onclick = function (){
+//     document.querySelector(".n5").setAttribute("style", "color: inhrit")
+//     TenPersent.setAttribute("style", "color: inhrit")
+//     FifteenPersent.setAttribute("style", "color: inhrit")
+//     TwentyFivePersent.setAttribute("style", "color: inhrit")
+//     FiftyPersent.setAttribute("style", "color: inhrit")
+//     document.querySelector(".pere-person").innerHTML = "$0.00"
+//     document.querySelector(".per-person").innerHTML = "$0.00"
+//     bill_value.value =0
+//     NumberOfPeople. value =0
+// }
+
+//another solution
+
+const
+container = document.querySelector (".tip-value"),
+billInput = document.querySelector (".billJS"),
+peopleInput = document.querySelector (".personJs"),
+buttons = document.querySelectorAll (".percent-value"),
+tipOutput = document.querySelector (".per-person"),
+totalOutput =document.querySelector (".pere-person"),
+reset = document.querySelector (".reset");
+
+container.addEventListener ("click", click)
+function click (event){
+    const clickedThing = event.target; 
+
+    for(let button of buttons){ button.classList.remove("highlight"); }
+
+    clickedThing.classList.add("highlight");
+
+    const
+    multiplier = clickedThing.dataset.persent / 100,
+    billAmount = billInput.value,
+    numOfPeople = peopleInput.value,
+
+    tipPerPerson = (multiplier * billAmount)/numOfPeople,
+    totalAmount = (tipPerPerson + (billAmount/numOfPeople));
+
+tipOutput.textContent = "$"+ tipPerPerson.toFixed(2)
+totalOutput.textContent = "$" + totalAmount.toFixed(2)
+
 }
+
+reset.onclick = function reset (){
+    // tipOutput.textContent ="$0.00";
+    // totalOutput.textContent ="$0.00";
+    // peopleInput.value = 0;
+    // billInput. value = 0;
+    // buttons.classList.remove("highlight");
+    window.location.reload()
 }
 
-FivePersent.onclick = function(){
-    const billInput= bill_value.value
-    const NumberOfPeopleInput = NumberOfPeople.value
-    FivePersent.setAttribute("style", "background-color: RGB(38,194,173)")
-    document.querySelector(".per-person").innerHTML ="$"+ ((billInput * 0.05)/NumberOfPeopleInput).toFixed(2)
-    document.querySelector(".pere-person").innerHTML ="$"+ ((billInput * 1.05)/NumberOfPeopleInput).toFixed(2)
-}
 
-TenPersent.onclick = function (){
-    const billInput= bill_value.value
-    const NumberOfPeopleInput = NumberOfPeople.value
-    TenPersent.setAttribute("style", "background-color: RGB(38,194,173)")
-    document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.1)/NumberOfPeopleInput).toFixed(2)
-    document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.1)/NumberOfPeopleInput).toFixed(2)
-}
 
-FifteenPersent.onclick =function (){
-    const billInput= bill_value.value
-    const NumberOfPeopleInput = NumberOfPeople.value
-    FifteenPersent.setAttribute("style", "background-color: RGB(38,194,173)")
-    document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.15)/NumberOfPeopleInput).toFixed(2)
-    document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.15)/NumberOfPeopleInput).toFixed(2)
-}
-
-TwentyFivePersent.onclick = function (){
-    const billInput= bill_value.value
-    const NumberOfPeopleInput = NumberOfPeople.value
-    TwentyFivePersent.setAttribute("style", "background-color: RGB(38,194,173)")
-    document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.25)/NumberOfPeopleInput).toFixed(2)
-    document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.25)/NumberOfPeopleInput).toFixed(2)
-}
-
-FiftyPersent.onclick = function (){
-    const billInput= bill_value.value
-    const NumberOfPeopleInput = NumberOfPeople.value
-    FiftyPersent.setAttribute("style", "background-color: RGB(38,194,173)")
-    document.querySelector(".per-person").innerHTML = "$"+ ((billInput * 0.5)/NumberOfPeopleInput).toFixed(2)
-    document.querySelector(".pere-person").innerHTML = "$"+ ((billInput * 1.5)/NumberOfPeopleInput).toFixed(2)
-}
-
-custom.onfocus =function(){
-    const billInput= bill_value.value
-    const NumberOfPeopleInput = NumberOfPeople.value
-    const customInput = custom.value
-
-    document.querySelector(".per-person").innerHTML = "$"+ ((billInput * (customInput/100))/NumberOfPeopleInput).toFixed(2)
-    document.querySelector(".pere-person").innerHTML = "$"+ (((billInput)+(billInput*customInput/100))/NumberOfPeopleInput).toFixed(2)
-}
-
-var acc = document.querySelector(".percent-value");
-
-var i;
-
-for (i = 0; i < acc.length; i++) {
-acc[i].onclick = function() {
-    this.classList.toggle("active");
-    this.nextElementSibling.classList.toggle("show");
-}
-}
-
-reset.onclick = function (){
-    document.querySelector(".n5").setAttribute("style", "color: inhrit")
-    TenPersent.setAttribute("style", "color: inhrit")
-    FifteenPersent.setAttribute("style", "color: inhrit")
-    TwentyFivePersent.setAttribute("style", "color: inhrit")
-    FiftyPersent.setAttribute("style", "color: inhrit")
-    document.querySelector(".pere-person").innerHTML = "$0.00"
-    document.querySelector(".per-person").innerHTML = "$0.00"
-    bill_value.value =0
-    NumberOfPeople. value =0
-}
